@@ -110,14 +110,27 @@ function DashboardPage() {
     setIsRefreshing(false);
   };
 
-  const handleStatusUpdate = async (interviewId: Id<"interviews">, status: string) => {
-    try {
-      await updateStatus({ id: interviewId, status });
-      toast.success(`Interview marked as ${status}`);
-    } catch (error) {
-      toast.error("Failed to update status");
-    }
-  };
+  // const handleStatusUpdate = async (interviewId: Id<"interviews">, status: string) => {
+  //   try {
+  //     await updateStatus({ id: interviewId, status });
+  //     toast.success(`Interview marked as ${status}`);
+  //   } catch (error) {
+  //     toast.error("Failed to update status");
+  //   }
+  // };
+type InterviewStatus = "upcoming" | "live" | "completed" | "succeeded" | "failed";
+
+  const handleStatusUpdate = async (
+  interviewId: Id<"interviews">,
+  status: InterviewStatus
+) => {
+  try {
+    await updateStatus({ id: interviewId, status });
+    toast.success(`Interview marked as ${status}`);
+  } catch (error) {
+    toast.error("Failed to update status");
+  }
+};
 ''
   const handleExport = () => {
     // Implementation for exporting data

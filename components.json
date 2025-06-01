@@ -3,6 +3,11 @@
   "style": "new-york",
   "rsc": true,
   "tsx": true,
+  
+  "scripts": {
+  "build:skip-check": "next build --skipLibCheck"
+  },
+
   "tailwind": {
     "config": "tailwind.config.ts",
     "css": "src/app/globals.css",
@@ -18,4 +23,6 @@
     "hooks": "@/hooks"
   },
   "iconLibrary": "lucide"
+
+  
 }
